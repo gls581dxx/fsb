@@ -1,0 +1,40 @@
+rpc_node:
+  ip: 127.0.0.1
+  port: 9009
+rpc:
+  dao_web:
+    token: 'xxx'
+  dao_strategy:
+    token: 'xxx'
+    host: '127.0.0.1:9001'
+rpc_token:
+  dao_web: 'xxx'
+  dao_strategy: 'xxx'
+  dao_quote: 'xxx'
+aes_root_key: ''
+sms:
+  sdkappid: ''
+  appkey: ''
+mongo:
+  'dao_trade':
+    mode: ReplicaSet
+    connstr: 'mongodb://{}:{}@192.168.99.105:37011,192.168.99.105:37012,192.168.99.105:37013/{}'
+    repl_name: ''
+    db_name: ''
+    db_user: ''
+    db_pwd: ''
+  'test':
+    mode: ''
+    connstr: '127.0.0.1:27017'
+    db_name: ''
+    db_user: ''
+    db_pwd: ''
+redis:
+  dao_quote:
+    host: 127.0.0.1
+    port: 6379
+    password: ''
+ctp_fee_dict:
+  {
+      'rb': {'type': 'ratio', 'open': 0.0001, 'close': 0.0001, 'close_yest': 0.0001}
+  }

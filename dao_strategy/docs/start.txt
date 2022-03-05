@@ -1,0 +1,17 @@
+cd /var/www/dao_strategy
+screen -S dsr
+python manage.py -t rpc
+screen -S dssend
+python manage.py -t send
+screen -S dspush
+python manage.py -t push
+screen -S dsd
+python manage.py -t backd -n 9
+screen -S dsmon
+python manage.py -t monitor
+
+screen -S fresh_primary
+python manage.py -t fresh_primary
+screen -S dss
+cd dao_strategy/live
+python manage_strategy.py -t real -s yes -m yes

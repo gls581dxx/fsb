@@ -1,0 +1,223 @@
+spot_ex:
+  - {"id": 'okex', "terrace_name": "OKEX"}
+  - {"id": 'huobi', "terrace_name": "Huobi"}
+  - {"id": 'binance', "terrace_name": "Binance"}
+  - {"id": 'stock', "terrace_name": "股票"}
+future_ex:
+  - {"id": 'okexf', "terrace_name": "OKEX合约"}
+  - {"id": 'huobif', "terrace_name": "Huobi合约"}
+  - {"id": 'ctp', "terrace_name": "CTP期货"}
+okex_symbols:
+  - {"symbol_id": "btc_usdt", "symbol_name": "btc_usdt"}
+  - {"symbol_id": "eos_usdt", "symbol_name": "eos_usdt"}
+  - {"symbol_id": "ltc_usdt", "symbol_name": "ltc_usdt"}
+  - {"symbol_id": "eth_usdt", "symbol_name": "eth_usdt"}
+  - {"symbol_id": "okb_usdt", "symbol_name": "okb_usdt"}
+  - {"symbol_id": "xrp_usdt", "symbol_name": "xrp_usdt"}
+  - {"symbol_id": "xmr_btc", "symbol_name": "xmr_btc"}
+huobi_symbols:
+  - {"symbol_id": "btc_usdt", "symbol_name": "btc_usdt"}
+  - {"symbol_id": "eos_usdt", "symbol_name": "eos_usdt"}
+  - {"symbol_id": "ltc_usdt", "symbol_name": "ltc_usdt"}
+  - {"symbol_id": "eth_usdt", "symbol_name": "eth_usdt"}
+  - {"symbol_id": "xrp_usdt", "symbol_name": "xrp_usdt"}
+  - {"symbol_id": "xmr_btc", "symbol_name": "xmr_btc"}
+binance_symbols:
+  - {"symbol_id": "btc_usdt", "symbol_name": "btc_usdt"}
+  - {"symbol_id": "eos_usdt", "symbol_name": "eos_usdt"}
+  - {"symbol_id": "ltc_usdt", "symbol_name": "ltc_usdt"}
+  - {"symbol_id": "eth_usdt", "symbol_name": "eth_usdt"}
+  - {"symbol_id": "xrp_usdt", "symbol_name": "xrp_usdt"}
+okexf_symbols:
+  - {"symbol_id": "btc_usd-quarter", "symbol_name": "btc_usd-季度"}
+  - {"symbol_id": "eos_usd-quarter", "symbol_name": "eos_usd-季度"}
+  - {"symbol_id": "ltc_usd-quarter", "symbol_name": "ltc_usd-季度"}
+  - {"symbol_id": "eth_usd-quarter", "symbol_name": "eth_usd-季度"}
+  - {"symbol_id": "xrp_usd-quarter", "symbol_name": "xrp_usd-季度"}
+  - {"symbol_id": "btc_usd-bi_quarter", "symbol_name": "btc_usd-次季"}
+  - {"symbol_id": "eos_usd-bi_quarter", "symbol_name": "eos_usd-次季"}
+  - {"symbol_id": "ltc_usd-bi_quarter", "symbol_name": "ltc_usd-次季"}
+  - {"symbol_id": "eth_usd-bi_quarter", "symbol_name": "eth_usd-次季"}
+  - {"symbol_id": "xrp_usd-bi_quarter", "symbol_name": "xrp_usd-次季"}
+  - {"symbol_id": "btc_usdt-quarter", "symbol_name": "btc_usdt-季度"}
+  - {"symbol_id": "eos_usdt-quarter", "symbol_name": "eos_usdt-季度"}
+  - {"symbol_id": "ltc_usdt-quarter", "symbol_name": "ltc_usdt-季度"}
+  - {"symbol_id": "eth_usdt-quarter", "symbol_name": "eth_usdt-季度"}
+  - {"symbol_id": "xrp_usdt-quarter", "symbol_name": "xrp_usdt-季度"}
+  - {"symbol_id": "btc_usdt-bi_quarter", "symbol_name": "btc_usdt-次季"}
+  - {"symbol_id": "eos_usdt-bi_quarter", "symbol_name": "eos_usdt-次季"}
+  - {"symbol_id": "ltc_usdt-bi_quarter", "symbol_name": "ltc_usdt-次季"}
+  - {"symbol_id": "eth_usdt-bi_quarter", "symbol_name": "eth_usdt-次季"}
+  - {"symbol_id": "xrp_usdt-bi_quarter", "symbol_name": "xrp_usdt-次季"}
+  - {"symbol_id": "btc_usd-this_week", "symbol_name": "btc_usd-当周"}
+  - {"symbol_id": "eos_usd-this_week", "symbol_name": "eos_usd-当周"}
+  - {"symbol_id": "ltc_usd-this_week", "symbol_name": "ltc_usd-当周"}
+  - {"symbol_id": "eth_usd-this_week", "symbol_name": "eth_usd-当周"}
+  - {"symbol_id": "xrp_usd-this_week", "symbol_name": "xrp_usd-当周"}
+  - {"symbol_id": "btc_usdt-this_week", "symbol_name": "btc_usdt-当周"}
+  - {"symbol_id": "eos_usdt-this_week", "symbol_name": "eos_usdt-当周"}
+  - {"symbol_id": "ltc_usdt-this_week", "symbol_name": "ltc_usdt-当周"}
+  - {"symbol_id": "eth_usdt-this_week", "symbol_name": "eth_usdt-当周"}
+  - {"symbol_id": "xrp_usdt-this_week", "symbol_name": "xrp_usdt-当周"}
+  - {"symbol_id": "btc_usd-next_week", "symbol_name": "btc_usd-次周"}
+  - {"symbol_id": "eos_usd-next_week", "symbol_name": "eos_usd-次周"}
+  - {"symbol_id": "ltc_usd-next_week", "symbol_name": "ltc_usd-次周"}
+  - {"symbol_id": "eth_usd-next_week", "symbol_name": "eth_usd-次周"}
+  - {"symbol_id": "xrp_usd-next_week", "symbol_name": "xrp_usd-次周"}
+  - {"symbol_id": "btc_usdt-next_week", "symbol_name": "btc_usdt-次周"}
+  - {"symbol_id": "eos_usdt-next_week", "symbol_name": "eos_usdt-次周"}
+  - {"symbol_id": "ltc_usdt-next_week", "symbol_name": "ltc_usdt-次周"}
+  - {"symbol_id": "eth_usdt-next_week", "symbol_name": "eth_usdt-次周"}
+  - {"symbol_id": "xrp_usdt-next_week", "symbol_name": "xrp_usdt-次周"}
+huobif_symbols:
+  - {"symbol_id": "btc_usd-quarter", "symbol_name": "btc_usd-季度"}
+  - {"symbol_id": "eos_usd-quarter", "symbol_name": "eos_usd-季度"}
+  - {"symbol_id": "ltc_usd-quarter", "symbol_name": "ltc_usd-季度"}
+  - {"symbol_id": "eth_usd-quarter", "symbol_name": "eth_usd-季度"}
+  - {"symbol_id": "btc_usd-this_week", "symbol_name": "btc_usd-当周"}
+  - {"symbol_id": "eos_usd-this_week", "symbol_name": "eos_usd-当周"}
+  - {"symbol_id": "ltc_usd-this_week", "symbol_name": "ltc_usd-当周"}
+  - {"symbol_id": "eth_usd-this_week", "symbol_name": "eth_usd-当周"}
+  - {"symbol_id": "btc_usd-next_week", "symbol_name": "btc_usd-次周"}
+  - {"symbol_id": "eos_usd-next_week", "symbol_name": "eos_usd-次周"}
+  - {"symbol_id": "ltc_usd-next_week", "symbol_name": "ltc_usd-次周"}
+  - {"symbol_id": "eth_usd-next_week", "symbol_name": "eth_usd-次周"}
+tick_size_dict:
+  {
+      'rb': 1, 'fu': 1, 'hc': 1, 'sp': 1,
+
+      'a': 1, 'b': 1, 'm': 1, 'y': 2, 'c': 1, 'p': 2,
+      'j': 0.5, 'jm': 0.5, 'l': 5, 'v': 5, 'pp': 1, 'jd': 1,
+      'cs': 1, 'i': 0.5, 'eg': 1, 'rr': 1, 'eb': 1,
+
+      'CF': 5, 'CY': 5, 'SR': 1, 'TA': 2, 'OI': 2,
+      'MA': 1, 'FG': 1, 'RM': 1, 'ZC': 0.2, 'SF': 2,
+      'SM': 2, 'AP': 1, 'CJ': 5, 'UR': 1, 'SA': 1,
+
+      'IF': 0.2, 'IC': 0.2, 'IH': 0.2,
+
+      'sc': 0.1
+  }
+ctp_symbols:
+  - {"symbol_id": "rb2201", "symbol_name": "螺纹钢2201", 'tick_size': 1}
+  - {"symbol_id": "rb2205", "symbol_name": "螺纹钢2205", 'tick_size': 1}
+  - {"symbol_id": "a2201", "symbol_name": "豆一2201", 'tick_size': 1}
+  - {"symbol_id": "a2205", "symbol_name": "豆一2205", 'tick_size': 1}
+  - {"symbol_id": "FG201", "symbol_name": "玻璃2201", 'tick_size': 1}
+  - {"symbol_id": "FG205", "symbol_name": "玻璃2205", 'tick_size': 1}
+  - {"symbol_id": "fu2201", "symbol_name": "燃油2201", 'tick_size': 1}
+  - {"symbol_id": "fu2205", "symbol_name": "燃油2205", 'tick_size': 1}
+  - {"symbol_id": "hc2201", "symbol_name": "热卷2201", 'tick_size': 1}
+  - {"symbol_id": "hc2205", "symbol_name": "热卷2205", 'tick_size': 1}
+  - {"symbol_id": "sp2201", "symbol_name": "纸浆2201", 'tick_size': 2}
+  - {"symbol_id": "sp2205", "symbol_name": "纸浆2205", 'tick_size': 2}
+  - {"symbol_id": "au2012", "symbol_name": "沪金(au)2012", 'tick_size': 0.02}
+  - {"symbol_id": "ag2012", "symbol_name": "沪银(ag)2012", 'tick_size': 1}
+  - {"symbol_id": "b2201", "symbol_name": "豆二2201", 'tick_size': 1}
+  - {"symbol_id": "b2205", "symbol_name": "豆二2205", 'tick_size': 1}
+  - {"symbol_id": "m2201", "symbol_name": "豆粕2201", 'tick_size': 1}
+  - {"symbol_id": "m2205", "symbol_name": "豆粕2205", 'tick_size': 1}
+  - {"symbol_id": "y2201", "symbol_name": "豆油2201", 'tick_size': 2}
+  - {"symbol_id": "y2205", "symbol_name": "豆油2205", 'tick_size': 2}
+  - {"symbol_id": "c2201", "symbol_name": "玉米2201", 'tick_size': 1}
+  - {"symbol_id": "c2205", "symbol_name": "玉米2205", 'tick_size': 1}
+  - {"symbol_id": "p2201", "symbol_name": "棕榈2201", 'tick_size': 2}
+  - {"symbol_id": "p2205", "symbol_name": "棕榈2205", 'tick_size': 1}
+  - {"symbol_id": "j2201", "symbol_name": "焦炭2201", 'tick_size': 0.5}
+  - {"symbol_id": "j2205", "symbol_name": "焦炭2205", 'tick_size': 0.5}
+  - {"symbol_id": "jm2201", "symbol_name": "焦煤2201", 'tick_size': 0.5}
+  - {"symbol_id": "jm2205", "symbol_name": "焦煤2205", 'tick_size': 0.5}
+  - {"symbol_id": "l2201", "symbol_name": "塑料2201", 'tick_size': 5}
+  - {"symbol_id": "l2205", "symbol_name": "塑料2205", 'tick_size': 5}
+  - {"symbol_id": "v2201", "symbol_name": "PVC2201", 'tick_size': 5}
+  - {"symbol_id": "v2205", "symbol_name": "PVC2205", 'tick_size': 5}
+  - {"symbol_id": "pp2201", "symbol_name": "pp2201", 'tick_size': 1}
+  - {"symbol_id": "pp2205", "symbol_name": "pp2205", 'tick_size': 1}
+  - {"symbol_id": "jd2201", "symbol_name": "鸡蛋2201", 'tick_size': 1}
+  - {"symbol_id": "jd2205", "symbol_name": "鸡蛋2205", 'tick_size': 1}
+  - {"symbol_id": "cs2201", "symbol_name": "淀粉2201", 'tick_size': 1}
+  - {"symbol_id": "cs2205", "symbol_name": "淀粉2205", 'tick_size': 1}
+  - {"symbol_id": "i2201", "symbol_name": "铁矿2201", 'tick_size': 0.5}
+  - {"symbol_id": "i2205", "symbol_name": "铁矿2205", 'tick_size': 0.5}
+  - {"symbol_id": "eg2201", "symbol_name": "乙二醇2201", 'tick_size': 1}
+  - {"symbol_id": "eg2205", "symbol_name": "乙二醇2205", 'tick_size': 1}
+  - {"symbol_id": "rr2201", "symbol_name": "粳米2201", 'tick_size': 1}
+  - {"symbol_id": "eb2201", "symbol_name": "苯乙烯2201", 'tick_size': 1}
+  - {"symbol_id": "eb2205", "symbol_name": "苯乙烯2205", 'tick_size': 1}
+  - {"symbol_id": "CF201", "symbol_name": "棉花2201", 'tick_size': 5}
+  - {"symbol_id": "CF205", "symbol_name": "棉花2205", 'tick_size': 5}
+  - {"symbol_id": "CY201", "symbol_name": "棉纱2201", 'tick_size': 5}
+  - {"symbol_id": "CY205", "symbol_name": "棉纱2205", 'tick_size': 5}
+  - {"symbol_id": "SR201", "symbol_name": "白糖2201", 'tick_size': 1}
+  - {"symbol_id": "SR205", "symbol_name": "白糖2205", 'tick_size': 1}
+  - {"symbol_id": "TA201", "symbol_name": "PTA2201", 'tick_size': 2}
+  - {"symbol_id": "TA205", "symbol_name": "PTA2205", 'tick_size': 2}
+  - {"symbol_id": "OI201", "symbol_name": "菜油2201", 'tick_size': 2}
+  - {"symbol_id": "OI205", "symbol_name": "菜油2205", 'tick_size': 2}
+  - {"symbol_id": "MA201", "symbol_name": "甲醇2201", 'tick_size': 1}
+  - {"symbol_id": "MA205", "symbol_name": "甲醇2205", 'tick_size': 1}
+  - {"symbol_id": "RM201", "symbol_name": "菜粕2201", 'tick_size': 1}
+  - {"symbol_id": "RM205", "symbol_name": "菜粕2205", 'tick_size': 1}
+  - {"symbol_id": "ZC201", "symbol_name": "郑煤2201", 'tick_size': 0.2}
+  - {"symbol_id": "ZC205", "symbol_name": "郑煤2205", 'tick_size': 0.2}
+  - {"symbol_id": "SF201", "symbol_name": "硅铁2201", 'tick_size': 2}
+  - {"symbol_id": "SF205", "symbol_name": "硅铁2205", 'tick_size': 2}
+  - {"symbol_id": "SM201", "symbol_name": "锰硅2201", 'tick_size': 2}
+  - {"symbol_id": "SM205", "symbol_name": "锰硅2205", 'tick_size': 2}
+  - {"symbol_id": "AP201", "symbol_name": "苹果2201", 'tick_size': 1}
+  - {"symbol_id": "CJ201", "symbol_name": "红枣2201", 'tick_size': 5}
+  - {"symbol_id": "CJ205", "symbol_name": "红枣2205", 'tick_size': 5}
+  - {"symbol_id": "UR201", "symbol_name": "尿素2201", 'tick_size': 1}
+  - {"symbol_id": "UR205", "symbol_name": "尿素2205", 'tick_size': 1}
+  - {"symbol_id": "SA201", "symbol_name": "纯碱2201", 'tick_size': 1}
+  - {"symbol_id": "SA205", "symbol_name": "纯碱2205", 'tick_size': 1}
+  - {"symbol_id": "IF2201", "symbol_name": "沪深300 2201", 'tick_size': 0.2}
+  - {"symbol_id": "IC2201", "symbol_name": "中证500 2201", 'tick_size': 0.2}
+  - {"symbol_id": "IH2201", "symbol_name": "上证50 2201", 'tick_size': 0.2}
+ctp_fee_dict:
+  {
+      'rb': {'type': 'ratio', 'open': 0.0001, 'close': 0.0001, 'close_yest': 0.0001},
+      'fu': {'type': 'ratio', 'open': 0.00009, 'close': 0, 'close_yest': 0.00009},
+      'hc': {'type': 'ratio', 'open': 0.0001, 'close': 0.0001, 'close_yest': 0.0001},
+      'sp': {'type': 'ratio', 'open': 0.00009, 'close': 0, 'close_yest': 0.00009},
+      'a': {'type': 'num', 'open': 2, 'close': 2, 'close_yest': 2},
+      'b': {'type': 'num', 'open': 1, 'close': 1, 'close_yest': 1},
+      'm': {'type': 'num', 'open': 1.5, 'close': 1.5, 'close_yest': 1.5},
+      'y': {'type': 'num', 'open': 2.5, 'close': 2.5, 'close_yest': 2.5},
+      'c': {'type': 'num', 'open': 1.2, 'close': 0, 'close_yest': 0},
+      'p': {'type': 'num', 'open': 2.5, 'close': 2.5, 'close_yest': 2.5},
+      'j': {'type': 'num', 'open': 0.6, 'close': 0.6, 'close_yest': 0.6},
+      'jm': {'type': 'num', 'open': 0.6, 'close': 0.6, 'close_yest': 0.6},
+      'l': {'type': 'num', 'open': 2, 'close': 2, 'close_yest': 2},
+      'v': {'type': 'num', 'open': 2, 'close': 2, 'close_yest': 2},
+      'pp': {'type': 'num', 'open': 0.6, 'close': 0.6, 'close_yest': 0.6},
+      'jd': {'type': 'num', 'open': 1.5, 'close': 1.5, 'close_yest': 1.5},
+      'cs': {'type': 'num', 'open': 1.5, 'close': 0, 'close_yest': 1.5},
+      'i': {'type': 'num', 'open': 4, 'close': 2, 'close_yest': 2, 'tick_earn': 100},
+      'eg': {'type': 'num', 'open': 4, 'close': 0, 'close_yest': 4},
+      'rr': {'type': 'num', 'open': 4, 'close': 4, 'close_yest': 4},
+      'eb': {'type': 'num', 'open': 6, 'close': 6, 'close_yest': 6},
+      'CF': {'type': 'num', 'open': 4.3, 'close': 4.3, 'close_yest': 4.3},
+      'CY': {'type': 'num', 'open': 4, 'close': 4, 'close_yest': 4},
+      'SR': {'type': 'num', 'open': 3, 'close': 0, 'close_yest': 3},
+      'TA': {'type': 'num', 'open': 3, 'close': 0, 'close_yest': 3},
+      'OI': {'type': 'num', 'open': 2, 'close': 0, 'close_yest': 2},
+      'MA': {'type': 'num', 'open': 2, 'close': 6, 'close_yest': 2},
+      'FG': {'type': 'num', 'open': 3, 'close': 3, 'close_yest': 3, 'tick_earn': 20},
+      'RM': {'type': 'num', 'open': 1.5, 'close': 0, 'close_yest': 1.5},
+      'ZC': {'type': 'num', 'open': 6, 'close': 0, 'close_yest': 6},
+      'SF': {'type': 'num', 'open': 3, 'close': 0, 'close_yest': 3},
+      'SM': {'type': 'num', 'open': 3, 'close': 0, 'close_yest': 3},
+      'AP': {'type': 'num', 'open': 5, 'close': 5, 'close_yest': 5},
+      'CJ': {'type': 'num', 'open': 3, 'close': 0, 'close_yest': 3},
+      'UR': {'type': 'num', 'open': 5, 'close': 5, 'close_yest': 5},
+      'SA': {'type': 'num', 'open': 3.5, 'close': 3.5, 'close_yest': 3.5},
+      'IF': {'type': 'ratio', 'open': 0.000023, 'close': 0.000023, 'close_yest': 0.000023},
+      'IC': {'type': 'ratio', 'open': 0.000023, 'close': 0.000345, 'close_yest': 0.000023},
+      'IH': {'type': 'ratio', 'open': 0.000023, 'close': 0.000345, 'close_yest': 0.000023}
+  }
+stock_symbols:
+  - {"symbol_id": "600519", "symbol_name": "600519"}
+  - {"symbol_id": "601636", "symbol_name": "601636"}
+  - {"symbol_id": "000698", "symbol_name": "000698"}
+  - {"symbol_id": "000860", "symbol_name": "000860"}
