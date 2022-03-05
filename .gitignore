@@ -18,3 +18,8 @@ dao_web/static/verify_code_imgs/*
 *.log
 *.pid
 .DS_Store
+
+dao_strategy/backtest/strategy_files/*.py
+*.pdf
+*.png
+*.jpg
