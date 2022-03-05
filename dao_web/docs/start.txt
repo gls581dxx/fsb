@@ -1,0 +1,3 @@
+cd /var/www/dao_web/
+screen -S dww
+python manage.py -t runserver
