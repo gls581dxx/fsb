@@ -110,8 +110,9 @@ class CtaStrategy(StrategyTemplate):
                     self.status = 'close_long'
                 elif (order_status == 'cancelled'):
                     self.status = 'going_long'
-            self.status_dict['status'] = self.status
-            self.set_strategy_status_dict(self.status_dict)
-            time_now = data['time_now']
-            msg = 'status: {}, time: {}'.format(self.status, time_now)
-            self.log_msg(msg)
+            if (pre_self_status != self.status):
+                self.status_dict['status'] = self.status
+                self.set_strategy_status_dict(self.status_dict)
+                time_now = data['time_now']
+                msg = 'status: {}, time: {}'.format(self.status, time_now)
+                self.log_msg(msg)
