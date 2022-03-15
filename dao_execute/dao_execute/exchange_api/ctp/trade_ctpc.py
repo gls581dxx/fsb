@@ -48,3 +48,14 @@ class TradeCtp(object):
             status = 0
             data = 'err: {}'.format(traceback.format_exc())
         return status, data
+
+    def query_order(self, user_id, exchange, account_type, strategy_name, symbol, order_id):
+        status = 1
+        try:
+            resp = self.ctp_thrift.query_order(user_id, exchange,
+                   account_type, strategy_name, symbol, order_id)
+            status, data = self.load_resp(resp)
+        except Exception as e:
+            status = 0
+            data = 'err: {}'.format(traceback.format_exc())
+        return status, data

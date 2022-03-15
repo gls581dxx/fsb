@@ -140,14 +140,11 @@ class CTradeSpi(api.CThostFtdcTraderSpi):
 
 	def OnRtnOrder(self, pOrder: 'CThostFtdcOrderField') -> "void":
 		try:
-			print("OnRtnOrder")
-			print("OrderStatus=", pOrder.OrderStatus)
-			print("StatusMsg=", pOrder.StatusMsg)
-			print("LimitPrice=", pOrder.LimitPrice)
 			order_id = '{}.{}.{}'.format(pOrder.FrontID, pOrder.SessionID, pOrder.OrderRef)
-
+			print("OnRtnOrder, order_id={}, OrderStatus={}, StatusMsg={}, LimitPrice={}, OrderSysID={}".format(order_id, pOrder.OrderStatus, pOrder.StatusMsg, pOrder.LimitPrice, pOrder.OrderSysID))
 			order_dict = {}
 			order_dict['order_id'] = order_id
+			order_dict['order_sys_id'] = pOrder.OrderSysID
 			order_dict['order_status'] = pOrder.OrderStatus
 			order_dict['quantity'] = pOrder.VolumeTotalOriginal
 			order_dict['quantity_treaded'] = pOrder.VolumeTraded
@@ -158,11 +155,8 @@ class CTradeSpi(api.CThostFtdcTraderSpi):
 
 	def OnRspOrderInsert(self, pInputOrder: 'CThostFtdcInputOrderField', pRspInfo: 'CThostFtdcRspInfoField', nRequestID: 'int', bIsLast: 'bool') -> "void":
 		try:
-			print("OnRspOrderInsert")
-			print("ErrorID=", pRspInfo.ErrorID)
-			print("ErrorMsg=", pRspInfo.ErrorMsg)
 			order_id = '{}.{}.{}'.format(self.FrontID, self.SessionID, pInputOrder.OrderRef)
-			print(order_id)
+			print("OnRspOrderInsert, order_id={}, ErrorID={}, ErrorMsg={}".format(order_id, pRspInfo.ErrorID, pRspInfo.ErrorMsg))
 			if (pRspInfo.ErrorID in [30, 31]):
 				# margin not available
 				order_status = '5'
@@ -170,6 +164,21 @@ class CTradeSpi(api.CThostFtdcTraderSpi):
 				order_dict['order_id'] = order_id
 				order_dict['order_status'] = order_status
 				self.on_order(order_dict)
+		except Exception as e:
+			print(traceback.format_exc())
+
+	def OnRspQryOrder(self, pOrder: 'CThostFtdcOrderField', pRspInfo: 'CThostFtdcRspInfoField', nRequestID: 'int', bIsLast: 'bool') -> "void":
+		try:
+			order_id = '{}.{}.{}'.format(pOrder.FrontID, pOrder.SessionID, pOrder.OrderRef)
+			print("OnRspQryOrder, order_id={}, OrderStatus={}, StatusMsg={}, LimitPrice={}".format(order_id, pOrder.OrderStatus, pOrder.StatusMsg, pOrder.LimitPrice))
+			order_dict = {}
+			order_dict['order_id'] = order_id
+			order_dict['order_sys_id'] = pOrder.OrderSysID
+			order_dict['order_status'] = pOrder.OrderStatus
+			order_dict['quantity'] = pOrder.VolumeTotalOriginal
+			order_dict['quantity_treaded'] = pOrder.VolumeTraded
+			order_dict['trading_day'] = pOrder.TradingDay
+			self.on_order(order_dict)
 		except Exception as e:
 			print(traceback.format_exc())
 
@@ -318,7 +327,7 @@ class CTradeSpi(api.CThostFtdcTraderSpi):
 		return status, data
 
 	def cancel_order(self, user_id, exchange, account_type, strategy_name, symbol, order_id):
-		user = User.objects.get(id=user_id)
+		# user = User.objects.get(id=user_id)
 		if ('.' in symbol):
 			exchange_, symbol = symbol.split('.')
 		else:
@@ -341,8 +350,31 @@ class CTradeSpi(api.CThostFtdcTraderSpi):
 		data = '订单撤销成功, 交易所: {}, 标的: {}'.format(exchange, symbol)
 		return status, data
 
+	def query_order(self, user_id, exchange, account_type, strategy_name, symbol, order_id):
+		# virtual int ReqQryOrder(CThostFtdcQryOrderField *pQryOrder, int nRequestID) = 0;
+		if ('.' in symbol):
+			exchange_, symbol = symbol.split('.')
+		else:
+			exchange_ = ''
+		order = Order.objects.get(order_id=order_id)
+		order_sys_id = order.order_sys_id
+		qry_order_field = api.CThostFtdcQryOrderField()
+		qry_order_field.BrokerID = self.broker_id
+		qry_order_field.InvestorID = self.api_key
+		qry_order_field.InstrumentID = symbol
+		qry_order_field.ExchangeID = exchange_
+		qry_order_field.OrderSysID = order_sys_id
+		# qry_order_field.InsertTimeStart = ''
+		# qry_order_field.InsertTimeEnd = ''
+		# qry_order_field.InvestUnitID = ''
+		self.tapi.ReqQryOrder(qry_order_field, 0)
+		status = 1
+		data = '订单查询成功, 交易所: {}, 标的: {}'.format(exchange, symbol)
+		return status, data
+
 	def on_order(self, order_dict):
 		order_id = order_dict['order_id']
+		order_sys_id = order_dict.get('order_sys_id', '')
 		order_status = order_dict.get('order_status', '3')
 		quantity = order_dict.get('quantity', 0.0)
 		quantity_treaded = order_dict.get('quantity_treaded', 0.0)
@@ -380,6 +412,7 @@ class CTradeSpi(api.CThostFtdcTraderSpi):
 		order.order_deal_timestamp = order_deal_timestamp
 		order.order_cancel_timestamp = order_cancel_timestamp
 		order.trading_day = trading_day
+		order.order_sys_id = order_sys_id
 		order.save()
 		return True
 
@@ -493,6 +526,17 @@ class TradeCtpHandler(object):
 		if not trade_spi is None:
 			symbol = self.convert_symbol(symbol)
 			status, data = trade_spi.cancel_order(user_id, exchange, account_type, strategy_name, symbol, order_id)
+		else:
+			status = 0
+			data = '账户不存在'
+		return self.ret_resp(status, data)
+
+	def query_order(self, user_id, exchange, account_type, strategy_name, symbol, order_id):
+		unique_ctp_key = '{}.{}'.format(user_id, account_type)
+		trade_spi = self.trade_spi_dict.get(unique_ctp_key, None)
+		if not trade_spi is None:
+			symbol = self.convert_symbol(symbol)
+			status, data = trade_spi.query_order(user_id, exchange, account_type, strategy_name, symbol, order_id)
 		else:
 			status = 0
 			data = '账户不存在'

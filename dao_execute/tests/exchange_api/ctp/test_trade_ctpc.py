@@ -13,12 +13,13 @@ class testTradeCtp(object):
     def test_execute_order(self):
         user_id = '5cb452702a0aa544cd9e0bca'
         exchange = 'ctp'
-        account_type = 'haqh'
+        account_type = 'api_bind'
         strategy_name = 'strategy_1'
-        symbol = 'FG201'
+        symbol = 'au2206'
         order_type = 'limit_going_long'
+        # order_type = 'limit_close_long'
         # order_type = 'market_close_long'
-        price = '2900'
+        price = '391'
         amount = '1'
         money_num = '0'
         exec_ts = str(time.time())
@@ -34,18 +35,30 @@ class testTradeCtp(object):
     def test_cancel_order(self, order_id=''):
         user_id = '5cb452702a0aa544cd9e0bca'
         exchange = 'ctp'
-        account_type = 'haqh'
+        account_type = 'api_bind'
         strategy_name = 'strategy_1'
-        symbol = 'FG201'
+        symbol = 'au2206'
         if order_id == '':
-            order_id = '7393417036223488'
+            order_id = '111333555'
         status, data = self.tc.cancel_order(user_id, exchange, account_type, strategy_name, symbol, order_id)
+        print(status, data)
+
+    def test_query_order(self, order_id=''):
+        user_id = '5cb452702a0aa544cd9e0bca'
+        exchange = 'ctp'
+        account_type = 'api_bind'
+        strategy_name = 'strategy_1'
+        symbol = 'au2206'
+        if order_id == '':
+            order_id = '111333555'
+        status, data = self.tc.query_order(user_id, exchange, account_type, strategy_name, symbol, order_id)
         print(status, data)
 
     def main(self):
         order_id = self.test_execute_order()
         time.sleep(3)
         self.test_cancel_order(order_id)
+        self.test_query_order(order_id)
         print('test pass')
 
 

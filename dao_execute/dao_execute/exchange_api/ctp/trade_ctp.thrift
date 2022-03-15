@@ -20,5 +20,13 @@ service TradeCtp {
         4:string strategy_name,
         5:string symbol,
         6:string order_id
-    )
+    );
+    string query_order(
+        1:string user_id,
+        2:string exchange,
+        3:string account_type,
+        4:string strategy_name,
+        5:string symbol,
+        6:string order_id
+    );
 }

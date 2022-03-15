@@ -11,11 +11,12 @@ from dao_execute.exchange_api.okexf import trade_okf_v5 as trade_okf
 from dao_execute.exchange_api.huobi import trade_hb
 from dao_execute.exchange_api.huobif import trade_hbf
 from dao_execute.exchange_api.binance import trade_ba
+from dao_execute.exchange_api.ctp import trade_ctpc
 from dao_execute.db.dt_models import (User, ExAccount, Order)
 
 
 def update_orders():
-    crypto_ex_list = ['okex', 'huobi', 'binance', 'okexf', 'huobif']
+    crypto_ex_list = ['okex', 'huobi', 'binance', 'okexf', 'huobif', 'ctp']
     account_type_list = ExAccount.objects.distinct('ex_account_name')
     orders = Order.objects.filter(account_type__in=account_type_list,
                                   exchange__in=crypto_ex_list,
@@ -32,6 +33,8 @@ def update_orders():
 
 def update_one_order(order):
     exchange = order.exchange
+    if exchange == 'ctp':
+        return update_one_ctp_order(order)
     user = User.objects.get(id=order.user_id)
     api_dict = user_api.get_api_dict_fast(user, exchange, order.account_type)
     api_key = api_dict['api_key']
@@ -188,6 +191,13 @@ def update_one_order(order):
     order.order_deal_timestamp = order_deal_timestamp
     order.save()
     return order
+
+
+def update_one_ctp_order(order):
+    tc = trade_ctpc.TradeCtp()
+    status, data = tc.query_order(order.user_id, order.exchange, order.account_type, order.strategy_name, order.symbol, order.order_id)
+    print('[*] ctp: ', status, data)
+    return None
 
 
 def main():
